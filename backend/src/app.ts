@@ -13,7 +13,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-mongoose.connect(DATABASE_URL);
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(reqestLogger);
@@ -27,5 +27,10 @@ app.use(errorLogger);
 app.use(errors());
 
 app.use(errorHadler);
-
-app.listen(+PORT, () => { console.log(`арр listening on port http://localhost:${PORT}/`); });
+mongoose.connect(DATABASE_URL).then(() => {
+  app.listen(+PORT, () => { console.log(`арр listening on port http://localhost:${PORT}/`); });
+})
+  .catch((error) => {
+    console.log('MongoDB connection error: ', error);
+    process.exit(1);
+  });

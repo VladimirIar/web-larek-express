@@ -21,7 +21,7 @@ export const createProduct = async (req: Request, res: Response, next: NextFunct
     const product = await Product.create({
       description, image, title, category, price,
     });
-    return res.status(201).send({ item: product });
+    return res.status(201).send({ product });
   } catch (error) {
     if (error instanceof mongoose.Error.ValidationError) {
       return next(new BadRequestError(error.message));
