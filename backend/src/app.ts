@@ -7,7 +7,7 @@ import router from './routes/index';
 import NotFoundError from './errors/not-found-error';
 import errorHadler from './middlewares/error-handler';
 import { errorLogger, reqestLogger } from './middlewares/logger';
-import { PORT, DATABASE_URL } from './config';
+import { PORT, DB_ADDRESS } from './config';
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.use(errorLogger);
 app.use(errors());
 
 app.use(errorHadler);
-mongoose.connect(DATABASE_URL).then(() => {
+mongoose.connect(DB_ADDRESS).then(() => {
   app.listen(+PORT, () => { console.log(`арр listening on port http://localhost:${PORT}/`); });
 })
   .catch((error) => {
