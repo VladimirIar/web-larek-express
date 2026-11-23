@@ -1,7 +1,7 @@
 {
   "name": "weblarek_backend",
   "version": "1.0.0",
-  "description": "< Добавьте описание проекта в свободной форме >",
+  "description": "Api weblarek позволяющий просматривать и добавлять товары, а так же создавать заказы",
   "main": "dist/app.js",
   "scripts": {
     "lint": "npx eslint src/**/*.ts",
@@ -10,7 +10,7 @@
     "start": "ts-node src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "< Укажите здесь автора работы >",
+  "author": "Yarovoy Vladimir",
   "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -30,6 +30,7 @@
     "@faker-js/faker": "^10.6.0",
     "celebrate": "^16.0.0",
     "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
     "express": "^4.19.2",
     "express-winston": "^4.2.0",
     "mongoose": "^8.3.2",

@@ -9,7 +9,7 @@ export const validateProduct = celebrate({
     }),
     category: Joi.string().required(),
     description: Joi.string().optional(),
-    price: Joi.number().allow(null).default(null),
+    price: Joi.number().positive().allow(null).default(null),
 
   }),
 });
